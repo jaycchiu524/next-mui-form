@@ -7,6 +7,7 @@ import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import styled from '@emotion/styled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { CompanySchema } from '@/yup/schemas'
+import { Container } from '@/components/commons'
 
 type Props = {}
 
@@ -30,67 +31,73 @@ const AddCompany = (props: Props) => {
       city: '',
     },
     resolver: yupResolver(CompanySchema),
+    mode: 'onChange',
   })
 
-  const handleCreateArticle = handleSubmit(async (values) => {
+  const handleCreateCompany = handleSubmit(async (values) => {
     console.log(values)
   })
 
   return (
-    <Paper sx={{ p: 4 }} component="form" onSubmit={handleCreateArticle}>
-      <Stack spacing={2}>
-        <TextInput
-          {...register('name')}
-          label="Company Name"
-          placeholder="Name"
-          error={!!errors.name}
-          helperText="Required"
-        />
-        <TextInput
-          {...register('address')}
-          label="Address"
-          placeholder="Name"
-          error={!!errors.address}
-          helperText="Required"
-        />
-        <TextInput
-          {...register('email')}
-          label="Email"
-          placeholder="Name"
-          error={!!errors.email}
-          helperText="Required"
-        />
-        <TextInput
-          {...register('description')}
-          label="Description"
-          placeholder="Name"
-          error={!!errors.description}
-          helperText="Required"
-        />
+    <Container>
+      <Paper sx={{ p: 4 }} component="form" onSubmit={handleCreateCompany}>
+        <Stack spacing={2}>
+          <TextInput
+            {...register('name')}
+            label="Company Name"
+            placeholder="Name"
+            error={!!errors.name}
+            helperText="Required"
+          />
+          <TextInput
+            {...register('address')}
+            label="Address"
+            placeholder="Name"
+            error={!!errors.address}
+            helperText="Required"
+          />
+          <TextInput
+            {...register('email')}
+            label="Email"
+            placeholder="Name"
+            error={!!errors.email}
+            helperText="Required"
+          />
+          <TextInput
+            {...register('description')}
+            label="Description"
+            placeholder="Name"
+            error={!!errors.description}
+            helperText="Required"
+          />
 
-        <Controller
-          name="phone"
-          control={control}
-          rules={{
-            validate: (value) => isValidPhoneNumber(value),
-          }}
-          render={({ field: { onChange, value } }) => (
-            <PhoneInput
-              value={value}
-              onChange={onChange}
-              defaultCountry="CA"
-              id="phone"
-              inputComponent={TextInput}
-            />
-          )}
-        />
-        {errors['phone'] && <ErrorMsg>Invalid Phone Number</ErrorMsg>}
+          <Controller
+            name="phone"
+            control={control}
+            rules={{
+              validate: (value) => isValidPhoneNumber(value),
+            }}
+            render={({ field: { onChange, value } }) => (
+              <PhoneInput
+                value={value}
+                onChange={onChange}
+                defaultCountry="CA"
+                id="phone"
+                inputComponent={TextInput}
+              />
+            )}
+          />
+          {errors['phone'] && <ErrorMsg>Invalid Phone Number</ErrorMsg>}
 
-        <Button variant="contained" type="submit" onClick={handleCreateArticle}>
-          Create article
-        </Button>
-      </Stack>
-    </Paper>
+          <Button
+            variant="outlined"
+            type="submit"
+            onClick={handleCreateCompany}>
+            Create article
+          </Button>
+        </Stack>
+      </Paper>
+    </Container>
   )
 }
 
