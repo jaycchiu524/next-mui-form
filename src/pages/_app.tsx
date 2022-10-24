@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo'
 import { ThemeProvider, createTheme, ScopedCssBaseline } from '@mui/material'
 
 import 'react-phone-number-input/style.css'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = createTheme({
@@ -44,6 +45,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           site_name: 'Kreatipedia',
         }}
       />
+      <Head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </Head>
       <Component {...pageProps} />
     </ThemeProvider>
   )
