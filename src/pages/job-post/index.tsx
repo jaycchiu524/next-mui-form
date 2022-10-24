@@ -172,34 +172,53 @@ const JobPostHome = (props: Props) => {
 
   return (
     <Container>
-      {selected.length > 0 && (
+      <Stack
+        sx={{ margin: 2 }}
+        direction="row"
+        justifyContent="flex-end"
+        alignItems="center"
+        spacing={2}>
+        {selected.length > 0 && (
+          <>
+            <Button
+              color="error"
+              variant="outlined"
+              onClick={(e) => {
+                e.preventDefault()
+                const canRemove = confirm(
+                  'Are you sure you want to remove all selected job posts?\nThis action cannot be undone.',
+                )
+
+                if (canRemove) {
+                  bulkRemove(selected)
+                  setSelected([])
+                }
+              }}>
+              Delete All Selected
+            </Button>
+            <Button
+              color="error"
+              variant="outlined"
+              onClick={(e) => {
+                e.preventDefault()
+                setSelected([])
+              }}>
+              Unselect All
+            </Button>
+          </>
+        )}
         <Button
-          color="error"
-          variant="outlined"
+          variant="contained"
           onClick={(e) => {
             e.preventDefault()
-            const canRemove = confirm(
-              'Are you sure you want to remove all selected job posts?\nThis action cannot be undone.',
-            )
-
-            if (canRemove) {
-              bulkRemove(selected)
-              setSelected([])
-            }
+            router.push('/job-post/add')
           }}>
-          Delete all selected
+          Insert New Job Post
         </Button>
-      )}
-      <Button
-        variant="outlined"
-        onClick={(e) => {
-          e.preventDefault()
-          router.push('/job-post/add')
-        }}>
-        Insert
-      </Button>
+      </Stack>
+
       {pagination}
-      <Table color="white">
+      <Table color="white" sx={{ marginY: 2 }}>
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -227,7 +246,7 @@ const JobPostHome = (props: Props) => {
             </TableRow>
           ))}
         </TableBody>
-        <TableFooter>
+        {/* <TableFooter>
           {table.getFooterGroups().map((footerGroup) => (
             <TableRow key={footerGroup.id}>
               {footerGroup.headers.map((header) => (
@@ -242,7 +261,7 @@ const JobPostHome = (props: Props) => {
               ))}
             </TableRow>
           ))}
-        </TableFooter>
+        </TableFooter> */}
       </Table>
       {pagination}
     </Container>
