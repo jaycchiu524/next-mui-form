@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 type Props = {}
 
@@ -22,6 +23,7 @@ const Icon = styled('h1')`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 10px;
 `
 const Links = styled('div')`
   display: flex;
@@ -39,7 +41,10 @@ const Header = (props: Props) => {
   const { push } = useRouter()
   return (
     <Nav>
-      <Icon>Kreatipedia</Icon>
+      <Links>
+        <Image src="/logo.png" alt="logo" width={50} height={50} />
+        <Icon>Kreatipedia</Icon>
+      </Links>
       <Links>
         <Link onClick={() => push('/company')}>Company</Link>
         <Link onClick={() => push('/job-post')}>Job Post</Link>
