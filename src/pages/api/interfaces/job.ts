@@ -1,4 +1,4 @@
-import { Company } from './company'
+import { faker } from '@faker-js/faker'
 
 export const jobIndustries = [
   'IT',
@@ -25,7 +25,6 @@ export type JobType = typeof jobTypes[number]
 
 export interface JobPost {
   id: string
-  // company: Company | null
   company: string
   title: string
   category: string
@@ -34,7 +33,21 @@ export interface JobPost {
   description: string
   payrate: number[] | number
   startdate: Date | number
-  // description: string
-  // location: string
-  // payrateType: string
+}
+
+export function createRandomJobPost(): JobPost {
+  return {
+    id: faker.datatype.uuid(),
+    company: faker.company.name(),
+    title: faker.name.jobTitle(),
+    category: faker.name.jobDescriptor(),
+    type: faker.helpers.arrayElement(jobTypes),
+    industry: faker.helpers.arrayElement(jobIndustries),
+    description: faker.lorem.sentences(2),
+    payrate: [
+      faker.datatype.number({ max: 40000, precision: 1000 }),
+      faker.datatype.number({ min: 41000, precision: 1000 }),
+    ],
+    startdate: faker.date.past(),
+  }
 }

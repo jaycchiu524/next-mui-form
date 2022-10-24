@@ -1,7 +1,7 @@
 import { immer } from 'zustand/middleware/immer'
 import create from 'zustand'
 import { Company } from '@/pages/api/interfaces/company'
-import { JobPost } from '@/pages/api/interfaces/job'
+import { jobIndustries, JobPost, jobTypes } from '@/pages/api/interfaces/job'
 
 // dummy data
 import dummyJobPost from '@/pages/api/dummy/jobpost.json'

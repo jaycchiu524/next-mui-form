@@ -1,6 +1,6 @@
 import { useStore } from '@/store'
-import React from 'react'
-import { Checkbox, Paper, Button, Slider } from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import { Checkbox, Paper, Button, Stack } from '@mui/material'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -8,7 +8,8 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { JobPost } from '../api/interfaces/job'
+import { jobIndustries, JobPost, jobTypes } from '@/pages/api/interfaces/job'
+import { faker } from '@faker-js/faker'
 
 import {
   Table,
@@ -21,17 +22,24 @@ import {
   Pagination,
   Chip,
 } from '@mui/material'
-import { Container } from '@/components/commons'
+import { Container, paginate } from '@/components/commons'
 
 type Props = {}
 
 const JobPostHome = (props: Props) => {
+  const [page, setPage] = useState(1)
+  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [currentPage, setCurrentPage] = useState<JobPost[]>([])
   const [selected, setSelected] = React.useState<string[]>([])
 
   const router = useRouter()
   const jobposts = useStore((state) => state.jobPosts)
   const remove = useStore((state) => state.removeJobPost)
   const bulkRemove = useStore((state) => state.bulkRemoveJobPost)
+
+  useEffect(() => {
+    setCurrentPage(paginate(jobposts, rowsPerPage, page))
+  }, [jobposts, page, rowsPerPage])
 
   const columnHelper = createColumnHelper<JobPost>()
   const columns = [
@@ -133,7 +141,7 @@ const JobPostHome = (props: Props) => {
     }),
   ]
   const table = useReactTable({
-    data: jobposts,
+    data: currentPage,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
@@ -205,10 +213,19 @@ const JobPostHome = (props: Props) => {
           ))}
         </TableFooter>
       </Table>
-      <div className="h-4" />
-      {/* <button onClick={() => rerender()} className="border p-2">
-        Rerender
-      </button> */}
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+        <Pagination
+          count={Math.ceil(jobposts.length / rowsPerPage)}
+          shape="rounded"
+          onChange={(_, page) => {
+            setPage(page)
+          }}
+        />
+      </Stack>
     </Container>
   )
 }

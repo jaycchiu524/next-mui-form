@@ -1,44 +1,632 @@
 [
   {
-    "id": "1",
-    "company": "Company 1",
-    "title": "Title 1",
-    "description": "Description 1",
-    "industry": "Industry 1",
+    "id": "aa0c1149-670e-4756-8b84-5dded9f5c0e8",
+    "company": "Morar Inc",
+    "title": "National Interactions Representative",
+    "category": "Lead",
+    "type": "contract",
+    "industry": "Education",
+    "description": "Occaecati voluptatibus itaque voluptatum soluta aperiam. Modi iusto rerum ipsum repudiandae commodi voluptatum aliquam minus debitis.",
     "payrate": [
-      30000,
-      40000
+      16000,
+      80000
     ],
-    "type": "full-time",
-    "category": "category 1",
-    "startdate": "2022-10-23T20:23:19.400Z"
+    "startdate": "2022-06-15T03:25:08.451Z"
   },
   {
-    "id": "2",
-    "company": "Company 2",
-    "title": "Title 2",
-    "description": "Description 2",
-    "industry": "Industry 2",
+    "id": "e0e7d1d2-da6c-41d5-95ea-510e4bfdbf4c",
+    "company": "Murphy and Sons",
+    "title": "Lead Response Manager",
+    "category": "Principal",
+    "type": "part-time",
+    "industry": "Transportation",
+    "description": "Necessitatibus rem perferendis neque quo vel quaerat reprehenderit. Quae corrupti dignissimos odio neque molestias odio.",
     "payrate": [
-      70000,
-      90000
+      12000,
+      128000
     ],
-    "type": "full-time",
-    "category": "category 2",
-    "startdate": "2022-10-21T20:23:19.400Z"
+    "startdate": "2022-03-15T20:53:43.738Z"
   },
   {
-    "id": "3",
-    "company": "Company 3",
-    "title": "Title 3",
-    "description": "Description 3",
-    "industry": "Industry 3",
-    "payrate": [
-      100000,
-      150000
-    ],
+    "id": "08b240b5-dcad-4504-9c7d-277269be29da",
+    "company": "Marquardt, Hilll and Ernser",
+    "title": "Senior Branding Supervisor",
+    "category": "Internal",
     "type": "full-time",
-    "category": "category 3",
-    "startdate": "2022-10-22T20:23:19.400Z"
+    "industry": "Education",
+    "description": "Alias dolor voluptates ea. Excepturi aliquam dolorum autem.",
+    "payrate": [
+      32000,
+      71000
+    ],
+    "startdate": "2021-12-18T06:20:28.287Z"
+  },
+  {
+    "id": "a7af18c4-857a-4ba9-b294-da6b7946c200",
+    "company": "Heathcote, Feil and Gleichner",
+    "title": "Central Applications Architect",
+    "category": "Customer",
+    "type": "contract",
+    "industry": "Manufacturing",
+    "description": "Repudiandae harum voluptas voluptatem enim ex fugiat. Facere accusantium est illo minus numquam earum sed quia dolore.",
+    "payrate": [
+      28000,
+      127000
+    ],
+    "startdate": "2022-01-23T17:45:53.017Z"
+  },
+  {
+    "id": "ba61ed11-b98b-4737-8e8a-d6c4fb48a0ee",
+    "company": "Nicolas - Lehner",
+    "title": "Future Intranet Coordinator",
+    "category": "Forward",
+    "type": "contract",
+    "industry": "Transportation",
+    "description": "Quisquam laudantium assumenda qui. Suscipit fugiat ullam tenetur veritatis expedita.",
+    "payrate": [
+      9000,
+      52000
+    ],
+    "startdate": "2021-12-26T11:12:45.259Z"
+  },
+  {
+    "id": "1e1082b9-0f9d-4c86-bbc1-fab6547ce4c7",
+    "company": "Murray Group",
+    "title": "Global Quality Specialist",
+    "category": "Lead",
+    "type": "contract",
+    "industry": "Healthcare",
+    "description": "Doloremque molestias quis. Corrupti aut sit blanditiis placeat.",
+    "payrate": [
+      14000,
+      55000
+    ],
+    "startdate": "2022-10-08T23:17:33.569Z"
+  },
+  {
+    "id": "53794a3d-812f-4295-965f-8119647ebdca",
+    "company": "Leffler LLC",
+    "title": "Central Usability Technician",
+    "category": "National",
+    "type": "part-time",
+    "industry": "Transportation",
+    "description": "Sed autem autem error assumenda aliquid veniam aperiam sint veritatis. Omnis aperiam dolorem velit voluptates nihil provident.",
+    "payrate": [
+      9000,
+      67000
+    ],
+    "startdate": "2022-01-29T00:39:55.121Z"
+  },
+  {
+    "id": "16bfcfa5-9cad-4f0c-82bd-8b851c97ef23",
+    "company": "Frami, Smitham and Reichel",
+    "title": "National Metrics Technician",
+    "category": "Dynamic",
+    "type": "internship",
+    "industry": "Construction",
+    "description": "Rem aperiam maxime. Illum non ducimus quasi animi nam fugit porro eaque.",
+    "payrate": [
+      13000,
+      42000
+    ],
+    "startdate": "2022-05-02T00:30:49.749Z"
+  },
+  {
+    "id": "db2b9f67-3d08-487a-909b-399aed1c545b",
+    "company": "Langosh, Kassulke and Orn",
+    "title": "District Metrics Planner",
+    "category": "Forward",
+    "type": "part-time",
+    "industry": "Education",
+    "description": "Consectetur ipsa dolorum neque fuga. Eaque ullam sit iusto.",
+    "payrate": [
+      11000,
+      57000
+    ],
+    "startdate": "2021-11-25T01:11:11.362Z"
+  },
+  {
+    "id": "24bf12c2-a2cd-4f55-87fa-b73c98430de9",
+    "company": "Funk - Leuschke",
+    "title": "National Quality Designer",
+    "category": "National",
+    "type": "part-time",
+    "industry": "Transportation",
+    "description": "Cumque necessitatibus eligendi. Illum pariatur temporibus iste magnam.",
+    "payrate": [
+      8000,
+      87000
+    ],
+    "startdate": "2022-08-12T14:17:37.933Z"
+  },
+  {
+    "id": "c8697373-b6e2-4cb0-ad5b-0fcefc094c17",
+    "company": "Ritchie Group",
+    "title": "Future Metrics Engineer",
+    "category": "Forward",
+    "type": "part-time",
+    "industry": "Healthcare",
+    "description": "Qui ducimus dignissimos aut pariatur ab iusto nihil. Assumenda fugit animi omnis autem explicabo nemo.",
+    "payrate": [
+      28000,
+      68000
+    ],
+    "startdate": "2022-08-29T13:34:40.956Z"
+  },
+  {
+    "id": "51e4842c-6e20-462e-93fc-c2615d7eb82b",
+    "company": "Mohr - Smitham",
+    "title": "Senior Metrics Strategist",
+    "category": "Future",
+    "type": "full-time",
+    "industry": "Transportation",
+    "description": "Nihil aspernatur repellendus deserunt. Occaecati accusantium unde.",
+    "payrate": [
+      21000,
+      87000
+    ],
+    "startdate": "2022-01-07T14:06:53.721Z"
+  },
+  {
+    "id": "2fc84ccd-0994-4685-bbbd-7b75cf268a26",
+    "company": "Franecki, Heathcote and Jenkins",
+    "title": "Internal Assurance Manager",
+    "category": "Future",
+    "type": "internship",
+    "industry": "Other",
+    "description": "Minima porro perspiciatis esse ducimus hic quisquam tempore maiores. Assumenda provident sit deleniti fugiat esse.",
+    "payrate": [
+      11000,
+      110000
+    ],
+    "startdate": "2022-04-21T16:58:19.291Z"
+  },
+  {
+    "id": "18dc29d3-0469-4b87-a4ba-f1fb40c55f89",
+    "company": "Hodkiewicz - Hagenes",
+    "title": "District Operations Designer",
+    "category": "International",
+    "type": "part-time",
+    "industry": "Other",
+    "description": "Dolores sequi voluptates. Sint dolorem porro rerum ipsa nulla perferendis in harum.",
+    "payrate": [
+      32000,
+      98000
+    ],
+    "startdate": "2022-01-26T09:52:20.319Z"
+  },
+  {
+    "id": "ea797f0b-b549-47b6-801e-de622c8ed998",
+    "company": "Streich - Schneider",
+    "title": "District Branding Agent",
+    "category": "District",
+    "type": "full-time",
+    "industry": "Construction",
+    "description": "Inventore eligendi officia sunt tenetur harum iusto. Animi soluta quas non.",
+    "payrate": [
+      25000,
+      52000
+    ],
+    "startdate": "2022-02-01T18:01:56.819Z"
+  },
+  {
+    "id": "6425eaf2-7c39-4f2d-b6f5-d1086f588bfd",
+    "company": "Franey - Effertz",
+    "title": "Chief Marketing Developer",
+    "category": "Corporate",
+    "type": "full-time",
+    "industry": "Manufacturing",
+    "description": "Minima at ipsam veritatis libero. Voluptatum autem natus culpa.",
+    "payrate": [
+      26000,
+      61000
+    ],
+    "startdate": "2021-11-16T23:14:43.316Z"
+  },
+  {
+    "id": "cbe4ac55-bbe4-4c2a-ac04-8c36b3d456f7",
+    "company": "Hodkiewicz, Cruickshank and Bernhard",
+    "title": "Global Infrastructure Associate",
+    "category": "Forward",
+    "type": "full-time",
+    "industry": "Retail",
+    "description": "Modi rerum non dignissimos eius a hic cum. Architecto totam odio in distinctio tenetur voluptas esse possimus suscipit.",
+    "payrate": [
+      37000,
+      83000
+    ],
+    "startdate": "2022-08-12T23:00:43.401Z"
+  },
+  {
+    "id": "67300e3c-6591-4cba-9547-c355b214a466",
+    "company": "Jenkins LLC",
+    "title": "Corporate Web Associate",
+    "category": "National",
+    "type": "internship",
+    "industry": "Manufacturing",
+    "description": "Ullam nesciunt vitae odio excepturi necessitatibus quidem. Fugit officia ipsam explicabo eveniet.",
+    "payrate": [
+      32000,
+      122000
+    ],
+    "startdate": "2022-04-15T05:06:39.410Z"
+  },
+  {
+    "id": "be4c8512-1171-429b-9186-02c32a79963b",
+    "company": "Feil - Raynor",
+    "title": "Regional Quality Representative",
+    "category": "Direct",
+    "type": "contract",
+    "industry": "IT",
+    "description": "Quibusdam pariatur facere deleniti dolor aut esse eveniet similique facere. Sequi maiores corrupti soluta officiis voluptas blanditiis consequatur quasi pariatur.",
+    "payrate": [
+      17000,
+      75000
+    ],
+    "startdate": "2022-07-10T12:36:26.470Z"
+  },
+  {
+    "id": "8893838e-704f-4e6a-b414-9d0ae1adc98c",
+    "company": "Schiller - Watsica",
+    "title": "National Markets Director",
+    "category": "Legacy",
+    "type": "internship",
+    "industry": "Transportation",
+    "description": "Facilis perferendis temporibus alias vitae magni aperiam voluptatibus necessitatibus aliquam. Tenetur dolor repellat.",
+    "payrate": [
+      38000,
+      120000
+    ],
+    "startdate": "2022-01-04T01:10:00.842Z"
+  },
+  {
+    "id": "a7d3e836-973d-4ae4-bf2b-0ce01725b327",
+    "company": "Steuber Inc",
+    "title": "Investor Security Architect",
+    "category": "Dynamic",
+    "type": "contract",
+    "industry": "Finance",
+    "description": "In optio accusamus debitis eos repellat sapiente. Maxime aliquid exercitationem placeat quis molestias.",
+    "payrate": [
+      6000,
+      104000
+    ],
+    "startdate": "2022-01-10T20:26:04.999Z"
+  },
+  {
+    "id": "236413ef-0826-4850-bb0c-677740995429",
+    "company": "Prohaska LLC",
+    "title": "Regional Identity Analyst",
+    "category": "Dynamic",
+    "type": "contract",
+    "industry": "Finance",
+    "description": "Facere mollitia corporis necessitatibus harum veritatis ratione. Numquam dicta odio.",
+    "payrate": [
+      13000,
+      120000
+    ],
+    "startdate": "2022-03-07T05:49:12.820Z"
+  },
+  {
+    "id": "2e5c6d5f-548c-4a27-8d16-0512f3fed7fa",
+    "company": "Bernier - Toy",
+    "title": "Product Infrastructure Specialist",
+    "category": "District",
+    "type": "internship",
+    "industry": "Finance",
+    "description": "Quidem id deleniti nobis quis dicta. Sunt soluta commodi delectus modi.",
+    "payrate": [
+      6000,
+      131000
+    ],
+    "startdate": "2022-01-25T17:43:21.123Z"
+  },
+  {
+    "id": "431e5f5b-5c35-46ea-a355-9b16b830299e",
+    "company": "Mills, Robel and Littel",
+    "title": "Legacy Program Director",
+    "category": "Customer",
+    "type": "part-time",
+    "industry": "Education",
+    "description": "Harum nulla impedit nihil. Tempora eos ab culpa aspernatur maxime quod optio.",
+    "payrate": [
+      31000,
+      54000
+    ],
+    "startdate": "2022-03-14T06:17:46.714Z"
+  },
+  {
+    "id": "eb206171-d1b6-426e-922e-30c9b701c199",
+    "company": "Barton, Wiza and Beer",
+    "title": "Investor Paradigm Specialist",
+    "category": "District",
+    "type": "contract",
+    "industry": "Retail",
+    "description": "Explicabo iure facilis animi reiciendis. Fugiat unde magnam voluptatum facilis sapiente quis.",
+    "payrate": [
+      25000,
+      101000
+    ],
+    "startdate": "2022-07-29T13:20:27.965Z"
+  },
+  {
+    "id": "3d351de4-05ed-4f2f-b6d9-5535e6b74012",
+    "company": "Robel and Sons",
+    "title": "International Security Officer",
+    "category": "Central",
+    "type": "part-time",
+    "industry": "Other",
+    "description": "Ad saepe neque iusto voluptates aspernatur dolorum ducimus consequuntur error. Aliquam commodi quisquam maiores aliquam.",
+    "payrate": [
+      28000,
+      42000
+    ],
+    "startdate": "2022-06-04T17:17:53.874Z"
+  },
+  {
+    "id": "426123a8-dd73-4f5e-b49a-55b26a295cbe",
+    "company": "Stanton, Bashirian and Lowe",
+    "title": "Principal Security Coordinator",
+    "category": "District",
+    "type": "full-time",
+    "industry": "Finance",
+    "description": "Doloremque assumenda ea ab. Earum praesentium optio occaecati tempora.",
+    "payrate": [
+      16000,
+      91000
+    ],
+    "startdate": "2021-11-07T05:25:12.810Z"
+  },
+  {
+    "id": "68c98431-df74-4bfe-abf8-0c3f0883661c",
+    "company": "Ward and Sons",
+    "title": "Corporate Markets Technician",
+    "category": "Senior",
+    "type": "contract",
+    "industry": "Retail",
+    "description": "Nesciunt consequuntur dolorum sunt quas expedita aliquid. Sint natus in nemo.",
+    "payrate": [
+      13000,
+      131000
+    ],
+    "startdate": "2022-05-16T02:33:43.718Z"
+  },
+  {
+    "id": "49b6949a-45b7-4eb6-beac-32ec2c5fa426",
+    "company": "Kuhic Inc",
+    "title": "Future Solutions Facilitator",
+    "category": "Product",
+    "type": "full-time",
+    "industry": "IT",
+    "description": "Maiores magni sapiente dignissimos nulla totam itaque pariatur fugit. Fugit occaecati necessitatibus ex facilis dolorem a.",
+    "payrate": [
+      12000,
+      106000
+    ],
+    "startdate": "2021-11-29T15:50:09.051Z"
+  },
+  {
+    "id": "cfe4fe6e-2f02-4337-97a7-de8280ed1e91",
+    "company": "Altenwerth - Lebsack",
+    "title": "Central Group Representative",
+    "category": "Principal",
+    "type": "contract",
+    "industry": "Education",
+    "description": "Voluptate dolorem dolore. Nostrum explicabo animi adipisci natus dolorem.",
+    "payrate": [
+      8000,
+      127000
+    ],
+    "startdate": "2022-10-01T20:25:04.725Z"
+  },
+  {
+    "id": "66eb1a3d-ca35-4520-a783-7416fc5da9c8",
+    "company": "Weimann - Rempel",
+    "title": "Central Group Analyst",
+    "category": "Chief",
+    "type": "contract",
+    "industry": "Retail",
+    "description": "Vel unde nam quo. Nesciunt ullam amet rem doloremque consequatur ab officiis facere aperiam.",
+    "payrate": [
+      38000,
+      69000
+    ],
+    "startdate": "2021-10-29T18:39:54.390Z"
+  },
+  {
+    "id": "8b9e9170-e28c-4e43-bcbc-d0b9f8c64e2b",
+    "company": "Kshlerin, Glover and Ward",
+    "title": "Global Functionality Liaison",
+    "category": "Chief",
+    "type": "internship",
+    "industry": "Transportation",
+    "description": "Pariatur voluptatem molestiae et maxime eligendi at sunt. Voluptate assumenda laudantium tenetur odit.",
+    "payrate": [
+      28000,
+      59000
+    ],
+    "startdate": "2022-09-16T04:58:42.945Z"
+  },
+  {
+    "id": "285627f3-0905-4241-af6c-1154a355ea79",
+    "company": "Johns - Feest",
+    "title": "Lead Security Planner",
+    "category": "Direct",
+    "type": "contract",
+    "industry": "Manufacturing",
+    "description": "Repudiandae porro sapiente maxime libero consequatur minus tempore velit. Quia placeat cumque exercitationem nihil iusto.",
+    "payrate": [
+      2000,
+      113000
+    ],
+    "startdate": "2022-07-18T16:16:14.373Z"
+  },
+  {
+    "id": "b0b13b12-b913-4243-905b-cb8e3fe2b10e",
+    "company": "Nolan Inc",
+    "title": "Central Interactions Officer",
+    "category": "Principal",
+    "type": "contract",
+    "industry": "Finance",
+    "description": "Maxime beatae numquam aliquam esse. Assumenda dolorum nesciunt officiis eaque adipisci tenetur dicta ratione similique.",
+    "payrate": [
+      19000,
+      43000
+    ],
+    "startdate": "2022-05-12T21:49:10.470Z"
+  },
+  {
+    "id": "81c8b1b2-6897-43b0-8109-9ca240a52a04",
+    "company": "Stokes LLC",
+    "title": "Senior Identity Facilitator",
+    "category": "Future",
+    "type": "part-time",
+    "industry": "Finance",
+    "description": "Laboriosam quas molestias sit quibusdam est assumenda harum commodi aut. Id reprehenderit vero ullam aspernatur dicta totam quae.",
+    "payrate": [
+      38000,
+      51000
+    ],
+    "startdate": "2022-04-18T06:34:11.799Z"
+  },
+  {
+    "id": "5742da2c-5f73-4271-9662-601fd324df47",
+    "company": "Donnelly and Sons",
+    "title": "Corporate Usability Designer",
+    "category": "Regional",
+    "type": "contract",
+    "industry": "Construction",
+    "description": "Voluptas molestiae ad reiciendis facere assumenda. Minima aliquid ab.",
+    "payrate": [
+      35000,
+      139000
+    ],
+    "startdate": "2022-04-26T20:29:15.699Z"
+  },
+  {
+    "id": "10184922-9a7a-4239-bc5b-cb1a1289d387",
+    "company": "Marvin Group",
+    "title": "National Paradigm Representative",
+    "category": "Future",
+    "type": "part-time",
+    "industry": "Transportation",
+    "description": "Quis blanditiis laborum quibusdam tempore quam dicta. Aperiam eveniet ad nobis fuga occaecati corrupti dolorem repellat omnis.",
+    "payrate": [
+      5000,
+      114000
+    ],
+    "startdate": "2021-10-24T18:35:21.844Z"
+  },
+  {
+    "id": "2648c1ea-7192-474b-9fab-445154d1da43",
+    "company": "Schiller, Corwin and Graham",
+    "title": "Chief Infrastructure Analyst",
+    "category": "Future",
+    "type": "contract",
+    "industry": "Construction",
+    "description": "Facilis est aliquam recusandae sed. Officiis expedita eligendi.",
+    "payrate": [
+      37000,
+      79000
+    ],
+    "startdate": "2022-03-23T18:24:19.663Z"
+  },
+  {
+    "id": "4dc392c7-8882-43f1-af80-3c51db83993b",
+    "company": "Murphy - Rodriguez",
+    "title": "District Applications Executive",
+    "category": "Customer",
+    "type": "part-time",
+    "industry": "Manufacturing",
+    "description": "Pariatur aliquid quia laudantium eveniet quod suscipit ut minus. Tenetur corrupti reprehenderit.",
+    "payrate": [
+      20000,
+      100000
+    ],
+    "startdate": "2021-12-11T06:08:28.129Z"
+  },
+  {
+    "id": "e4b84070-74df-4cce-8f23-575770cbdfc7",
+    "company": "Borer and Sons",
+    "title": "Customer Program Director",
+    "category": "Dynamic",
+    "type": "part-time",
+    "industry": "Other",
+    "description": "Cum beatae nemo ad molestiae maxime deleniti reiciendis itaque voluptas. Excepturi beatae harum asperiores inventore suscipit.",
+    "payrate": [
+      16000,
+      122000
+    ],
+    "startdate": "2022-05-16T13:48:56.787Z"
+  },
+  {
+    "id": "6bffd3cf-bd78-4d28-b02d-21317343ca0a",
+    "company": "Nolan, Farrell and Romaguera",
+    "title": "Investor Applications Assistant",
+    "category": "Global",
+    "type": "contract",
+    "industry": "Hospitality",
+    "description": "Nobis commodi nulla quae totam natus. Nesciunt quae incidunt.",
+    "payrate": [
+      25000,
+      57000
+    ],
+    "startdate": "2022-07-13T07:13:17.411Z"
+  },
+  {
+    "id": "2f73ce2b-96ee-48f9-a8de-a57ae1dcc1c2",
+    "company": "Lind, Dicki and Kuvalis",
+    "title": "Dynamic Functionality Agent",
+    "category": "Global",
+    "type": "full-time",
+    "industry": "Transportation",
+    "description": "Consequuntur itaque earum deserunt nihil harum sapiente facere. Saepe dolores laboriosam amet rerum sint.",
+    "payrate": [
+      35000,
+      122000
+    ],
+    "startdate": "2022-09-27T08:33:06.282Z"
+  },
+  {
+    "id": "b7a2aef1-d628-4b2f-a614-37881e1a37eb",
+    "company": "Emmerich - Yundt",
+    "title": "Investor Functionality Agent",
+    "category": "Corporate",
+    "type": "full-time",
+    "industry": "Healthcare",
+    "description": "Officiis quod fugit laboriosam quaerat sed voluptate cum. Suscipit ducimus commodi.",
+    "payrate": [
+      15000,
+      96000
+    ],
+    "startdate": "2022-06-24T01:03:58.207Z"
+  },
+  {
+    "id": "849d3cae-b455-43a6-9605-7484ad947696",
+    "company": "Hamill Inc",
+    "title": "Product Response Officer",
+    "category": "Direct",
+    "type": "part-time",
+    "industry": "Finance",
+    "description": "Occaecati nam voluptates illum rerum. Odio autem amet ab a perspiciatis cupiditate est quod.",
+    "payrate": [
+      31000,
+      118000
+    ],
+    "startdate": "2021-12-07T01:12:01.457Z"
+  },
+  {
+    "id": "119e6492-378e-4495-b9a7-c1b640ad3525",
+    "company": "Bahringer - O'Conner",
+    "title": "Human Web Agent",
+    "category": "Forward",
+    "type": "contract",
+    "industry": "Hospitality",
+    "description": "Asperiores similique ad officiis eum ipsum minima asperiores. Facilis doloribus qui quibusdam vero necessitatibus porro aspernatur incidunt.",
+    "payrate": [
+      29000,
+      109000
+    ],
+    "startdate": "2022-10-11T08:07:57.022Z"
   }
 ]

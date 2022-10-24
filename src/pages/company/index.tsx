@@ -1,6 +1,6 @@
 import { useStore } from '@/store'
-import React from 'react'
-import { Checkbox, Paper, Button, Slider } from '@mui/material'
+import React, { FormEvent, useEffect, useState } from 'react'
+import { Checkbox, TextField, Button, Stack } from '@mui/material'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -20,18 +20,24 @@ import {
   Pagination,
   Chip,
 } from '@mui/material'
-import { Container } from '@/components/commons'
+import { Container, paginate } from '@/components/commons'
 import { Company } from '../api/interfaces/company'
 
-type Props = {}
+const JobPostHome = () => {
+  const [page, setPage] = useState(1)
+  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [currentPage, setCurrentPage] = useState<Company[]>([])
 
-const JobPostHome = (props: Props) => {
   const [selected, setSelected] = React.useState<string[]>([])
 
   const router = useRouter()
   const companies = useStore((state) => state.companies)
   const remove = useStore((state) => state.removeCompany)
   const bulkRemove = useStore((state) => state.bulkRemoveCompany)
+
+  useEffect(() => {
+    setCurrentPage(paginate(companies, rowsPerPage, page))
+  }, [companies, page, rowsPerPage])
 
   const columnHelper = createColumnHelper<Company>()
   const columns = [
@@ -107,7 +113,7 @@ const JobPostHome = (props: Props) => {
     }),
   ]
   const table = useReactTable({
-    data: companies,
+    data: currentPage,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
@@ -180,10 +186,20 @@ const JobPostHome = (props: Props) => {
           ))}
         </TableFooter>
       </Table>
-      <div className="h-4" />
-      {/* <button onClick={() => rerender()} className="border p-2">
-        Rerender
-      </button> */}
+
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}>
+        <Pagination
+          count={Math.ceil(companies.length / rowsPerPage)}
+          shape="rounded"
+          onChange={(_, page) => {
+            setPage(page)
+          }}
+        />
+      </Stack>
     </Container>
   )
 }
