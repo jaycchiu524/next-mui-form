@@ -1,11 +1,27 @@
 import { Company } from './company'
 
-export type JobIndustry =
-  | 'IT'
-  | 'Finance'
-  | 'Healthcare'
-  | 'Education'
-  | 'Other'
+export const jobIndustries = [
+  'IT',
+  'Finance',
+  'Healthcare',
+  'Education',
+  'Manufacturing',
+  'Retail',
+  'Hospitality',
+  'Construction',
+  'Transportation',
+  'Other',
+] as const
+
+export const jobTypes = [
+  'full-time',
+  'part-time',
+  'contract',
+  'internship',
+] as const
+
+export type JobIndustry = typeof jobIndustries[number]
+export type JobType = typeof jobTypes[number]
 
 export interface JobPost {
   id: string
@@ -13,7 +29,7 @@ export interface JobPost {
   company: string
   title: string
   category: string
-  type: 'full-time' | 'part-time' | 'contract'
+  type: JobType
   industry: JobIndustry
   description: string
   payrate: number[] | number

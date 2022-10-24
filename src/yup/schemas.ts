@@ -1,5 +1,5 @@
 import { Company } from '@/pages/api/interfaces/company'
-import { JobPost } from '@/pages/api/interfaces/job'
+import { jobIndustries, JobPost, jobTypes } from '@/pages/api/interfaces/job'
 import * as yup from 'yup'
 
 type SchemaShape<T extends object> = Partial<Record<keyof T, yup.AnySchema>>
@@ -19,8 +19,8 @@ export const JobSchema = yup.object().shape<SchemaShape<JobPost>>({
   // }),
   company: yup.string().required(),
   title: yup.string().required(),
-  category: yup.string().required(),
-  type: yup.string().required(),
+  category: yup.mixed().oneOf([...jobIndustries]),
+  type: yup.mixed().oneOf([...jobTypes]),
   industry: yup.string().required(),
   description: yup.string().required(),
   payrate: yup.array().of(yup.number()).required(),

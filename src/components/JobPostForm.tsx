@@ -1,7 +1,16 @@
 import React from 'react'
-import { Stack, Paper, Button, Slider } from '@mui/material'
+import {
+  Stack,
+  Paper,
+  RadioGroup,
+  Radio,
+  FormControlLabel,
+  Slider,
+} from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { TextInput } from '@/components/TextInput'
+import DatePicker from './DatePicker'
+import IndustryPicker from './IndustryPicker'
 
 type Props = {}
 
@@ -38,13 +47,7 @@ const JobPostForm = (props: Props) => {
           error={!!errors.description}
           // helperText="Required"
         />
-        <TextInput
-          {...register('industry')}
-          label="Industry"
-          placeholder="Name"
-          error={!!errors.industry}
-          // helperText="Required"
-        />
+        <IndustryPicker />
         <TextInput
           {...register('category')}
           label="Category"
@@ -52,19 +55,35 @@ const JobPostForm = (props: Props) => {
           error={!!errors.category}
           // helperText="Required"
         />
-        <TextInput
-          {...register('startdate')}
-          label="Start Date"
-          placeholder="Now"
-          error={!!errors.startdate}
-          // helperText="Required"
-        />
-        <TextInput
-          {...register('type')}
-          label="Type"
-          placeholder="full-time"
-          error={!!errors.type}
-          // helperText="Required"
+        <DatePicker />
+
+        <Controller
+          name="type"
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+              onChange={onChange}
+              value={value}>
+              <FormControlLabel
+                value="full-time"
+                control={<Radio />}
+                label="Full-time"
+              />
+              <FormControlLabel
+                value="part-time"
+                control={<Radio />}
+                label="Part-time"
+              />
+              <FormControlLabel
+                value="contract"
+                control={<Radio />}
+                label="Contract"
+              />
+            </RadioGroup>
+          )}
         />
 
         <Controller
@@ -85,7 +104,7 @@ const JobPostForm = (props: Props) => {
               <p>
                 {value &&
                   (typeof value !== 'number'
-                    ? `${value[0]} - ${value[1]} / year`
+                    ? `${value[0]} - ${value[1]} /year`
                     : value)}
               </p>
             </>
