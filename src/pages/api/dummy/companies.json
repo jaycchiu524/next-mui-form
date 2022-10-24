@@ -1,0 +1,27 @@
+[
+  {
+    "id": "10000001",
+    "name": "ABC Limited",
+    "address": "123 Main Street",
+    "city": "Anytown",
+    "email": "abc@abclimited.com",
+    "phone": "123-456-7890",
+    "description": "ABC Limited is a company that does things."
+  },
+  {
+    "id": "10000002",
+    "name": "XYZ Limited",
+    "address": "456 Main Street",
+    "city": "Anytown",
+    "email": "xyz@xyzlimited.com",
+    "phone": "123-456-7890"
+  },
+  {
+    "id": "10000003",
+    "name": "DEF Limited",
+    "address": "789 Main Street",
+    "city": "Anytown",
+    "email": "xyz@xyzlimited.com",
+    "phone": "123-456-7890"
+  }
+]

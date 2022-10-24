@@ -5,6 +5,7 @@ import { JobPost } from '@/pages/api/interfaces/job'
 
 // dummy data
 import dummyJobPost from '@/pages/api/dummy/jobpost.json'
+import dummyCompanies from '@/pages/api/dummy/companies.json'
 
 type Store = {
   companies: Company[]
@@ -21,7 +22,7 @@ const defaultJobPosts = dummyJobPost as JobPost[]
 
 export const useStore = create<Store>()(
   immer((set, get) => ({
-    companies: [],
+    companies: [...dummyCompanies],
     jobPosts: [...defaultJobPosts],
     appendJobPost: (jobPost: JobPost) => {
       set((state) => {

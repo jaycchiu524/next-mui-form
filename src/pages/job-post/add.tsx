@@ -37,7 +37,6 @@ const AddJobPost = (props: Props) => {
   const { handleSubmit, reset } = methods
 
   const append = useStore((state) => state.appendJobPost)
-  const globaljobs = useStore((state) => state.jobPosts)
 
   const handleCreateJobPost = handleSubmit(async (values) => {
     const id = nanoid()
@@ -60,7 +59,7 @@ const AddJobPost = (props: Props) => {
       <FormProvider {...methods}>
         <JobPostForm />
         <Button variant="outlined" type="submit" onClick={handleCreateJobPost}>
-          Create Job Post
+          Add Job Post
         </Button>
       </FormProvider>
     </Container>

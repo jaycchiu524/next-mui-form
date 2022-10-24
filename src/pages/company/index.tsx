@@ -8,7 +8,6 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { JobPost } from '../api/interfaces/job'
 
 import {
   Table,
@@ -22,74 +21,49 @@ import {
   Chip,
 } from '@mui/material'
 import { Container } from '@/components/commons'
+import { Company } from '../api/interfaces/company'
 
 type Props = {}
 
 const JobPostHome = (props: Props) => {
   const router = useRouter()
-  const jobposts = useStore((state) => state.jobPosts)
-  const remove = useStore((state) => state.removeJobPost)
+  const companies = useStore((state) => state.companies)
+  const remove = useStore((state) => state.removeCompany)
 
-  const columnHelper = createColumnHelper<JobPost>()
+  const columnHelper = createColumnHelper<Company>()
   const columns = [
-    columnHelper.accessor('title', {
-      header: () => 'Title',
-      cell: (job) => job.getValue(),
+    columnHelper.accessor('name', {
+      header: () => 'Name',
+      cell: (info) => info.getValue(),
       // footer: (info) => info.column.id,
     }),
-    columnHelper.accessor('company', {
-      header: 'Company',
-      cell: (job) => job.getValue(),
+    columnHelper.accessor('address', {
+      header: 'Address',
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('industry', {
-      header: () => 'Industry',
-      cell: (job) => job.getValue(),
+    columnHelper.accessor('email', {
+      header: () => 'Email',
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('payrate', {
-      header: () => 'Payrate',
-      cell: (job) => {
-        const payrate = job.getValue()
-
-        if (typeof payrate === 'number') {
-          return payrate
-        } else {
-          return `${payrate[0]} - ${payrate[1]}`
-        }
-      },
+    columnHelper.accessor('phone', {
+      header: () => 'Phone',
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('startdate', {
-      header: () => 'Start Date',
-      cell: (job) => {
-        const date = job.getValue()
-        if (date instanceof Date) {
-          return date.toLocaleDateString()
-        } else {
-          return new Date(date).toLocaleDateString()
-        }
-      },
-    }),
-    columnHelper.accessor('type', {
-      header: () => 'Type',
+    columnHelper.accessor('city', {
+      header: () => 'City',
       cell: (job) => job.getValue(),
     }),
     columnHelper.display({
       header: () => 'Actions',
       id: 'actions',
-      cell: (job) => {
+      cell: (info) => {
         return (
           <div>
-            {/* <Button
-              onClick={(e) => {
-                e.preventDefault()
-                router.push(`/job-post/${job.row.original.id}`)
-              }}>
-              View
-            </Button> */}
             <Button
               variant="outlined"
               onClick={(e) => {
                 e.preventDefault()
-                router.push(`/job-post/edit/${job.row.original.id}`)
+                router.push(`/company/edit/${info.row.original.id}`)
               }}>
               Edit
             </Button>
@@ -98,7 +72,7 @@ const JobPostHome = (props: Props) => {
               color="error"
               onClick={(e) => {
                 e.preventDefault()
-                remove(job.row.original.id)
+                remove(info.row.original.id)
               }}>
               Delete
             </Button>
@@ -108,7 +82,7 @@ const JobPostHome = (props: Props) => {
     }),
   ]
   const table = useReactTable({
-    data: jobposts,
+    data: companies,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
@@ -119,7 +93,7 @@ const JobPostHome = (props: Props) => {
         variant="outlined"
         onClick={(e) => {
           e.preventDefault()
-          router.push('/job-post/add')
+          router.push('/company/add')
         }}>
         Insert
       </Button>

@@ -10,7 +10,7 @@ export const CompanySchema = yup.object().shape<SchemaShape<Company>>({
   city: yup.string().optional(),
   phone: yup.string().required(),
   email: yup.string().email().required(),
-  description: yup.string().required(),
+  description: yup.string(),
 })
 
 export const JobSchema = yup.object().shape<SchemaShape<JobPost>>({

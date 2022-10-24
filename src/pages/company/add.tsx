@@ -1,27 +1,22 @@
 import React from 'react'
 import { Stack, Paper, Button } from '@mui/material'
 import { Company } from '../api/interfaces/company'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 import { TextInput } from '@/components/TextInput'
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
-import styled from '@emotion/styled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { CompanySchema } from '@/yup/schemas'
 import { Container } from '@/components/commons'
+import { useRouter } from 'next/router'
+import { useStore } from '@/store'
+import { nanoid } from 'nanoid'
+import CompanyForm from '@/components/CompanyForm'
 
 type Props = {}
 
-const ErrorMsg = styled('p')`
-  color: red;
-`
-
 const AddCompany = (props: Props) => {
-  const {
-    handleSubmit,
-    control,
-    register,
-    formState: { errors },
-  } = useForm<Company>({
+  const router = useRouter()
+  const methods = useForm<Company>({
     defaultValues: {
       name: '',
       address: '',
@@ -34,69 +29,33 @@ const AddCompany = (props: Props) => {
     mode: 'onChange',
   })
 
+  const { handleSubmit, reset } = methods
+  const append = useStore((state) => state.appendCompany)
+
   const handleCreateCompany = handleSubmit(async (values) => {
-    console.log(values)
+    const id = nanoid()
+    const company = { ...values, id }
+    append(company)
+    reset()
+    alert(JSON.stringify(company, null, 2))
   })
 
   return (
     <Container>
-      <Paper sx={{ p: 4 }} component="form" onSubmit={handleCreateCompany}>
-        <Stack spacing={2}>
-          <TextInput
-            {...register('name')}
-            label="Company Name"
-            placeholder="Name"
-            error={!!errors.name}
-            helperText="Required"
-          />
-          <TextInput
-            {...register('address')}
-            label="Address"
-            placeholder="Name"
-            error={!!errors.address}
-            helperText="Required"
-          />
-          <TextInput
-            {...register('email')}
-            label="Email"
-            placeholder="Name"
-            error={!!errors.email}
-            helperText="Required"
-          />
-          <TextInput
-            {...register('description')}
-            label="Description"
-            placeholder="Name"
-            error={!!errors.description}
-            helperText="Required"
-          />
+      <Button
+        onClick={(e) => {
+          e.preventDefault()
+          router.push('/company')
+        }}>
+        Back
+      </Button>
 
-          <Controller
-            name="phone"
-            control={control}
-            rules={{
-              validate: (value) => isValidPhoneNumber(value),
-            }}
-            render={({ field: { onChange, value } }) => (
-              <PhoneInput
-                value={value}
-                onChange={onChange}
-                defaultCountry="CA"
-                id="phone"
-                inputComponent={TextInput}
-              />
-            )}
-          />
-          {errors['phone'] && <ErrorMsg>Invalid Phone Number</ErrorMsg>}
-
-          <Button
-            variant="outlined"
-            type="submit"
-            onClick={handleCreateCompany}>
-            Create article
-          </Button>
-        </Stack>
-      </Paper>
+      <FormProvider {...methods}>
+        <CompanyForm />
+        <Button variant="outlined" type="submit" onClick={handleCreateCompany}>
+          Add Company
+        </Button>
+      </FormProvider>
     </Container>
   )
 }
