@@ -44,7 +44,7 @@ const AddJobPost = (props: Props) => {
     const jobPost = { ...values, id }
     append(jobPost)
     reset()
-    alert(JSON.stringify(jobPost, null, 2))
+    alert(`Job Post ${values.title} created!`)
     router.push('/job-post')
   })
 

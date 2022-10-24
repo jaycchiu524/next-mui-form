@@ -38,7 +38,7 @@ const AddCompany = (props: Props) => {
     const company = { ...values, id }
     append(company)
     reset()
-    alert(JSON.stringify(company, null, 2))
+    alert(`Company - ${company.name} created!`)
     router.push('/company')
   })
 
