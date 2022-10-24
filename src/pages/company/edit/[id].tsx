@@ -10,6 +10,7 @@ import JobPostForm from '@/components/JobPostForm'
 import { Container } from '@/components/commons'
 import { Company } from '@/pages/api/interfaces/company'
 import CompanyForm from '@/components/CompanyForm'
+import Header from '@/components/Header'
 
 type Props = {}
 
@@ -41,21 +42,38 @@ const EditCompany = (props: Props) => {
 
   return (
     <Container>
-      {JSON.stringify(companies, null, 2)}
+      <Header />
 
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          push('/company')
-        }}>
-        Back
-      </Button>
+      <Stack
+        sx={{ margin: 2 }}
+        direction="row"
+        justifyContent="flex-start"
+        spacing={2}>
+        <Button
+          variant="contained"
+          onClick={(e) => {
+            e.preventDefault()
+            push('/company')
+          }}>
+          Back
+        </Button>
+      </Stack>
 
       <FormProvider {...methods}>
         {companies && <CompanyForm />}
-        <Button variant="outlined" type="submit" onClick={handleEditCompany}>
-          Confirm Editing
-        </Button>
+        <Stack
+          sx={{ margin: 2 }}
+          direction="row"
+          justifyContent="flex-end"
+          spacing={2}>
+          <Button
+            color="success"
+            variant="contained"
+            type="submit"
+            onClick={handleEditCompany}>
+            Confirm Editing
+          </Button>
+        </Stack>
       </FormProvider>
     </Container>
   )

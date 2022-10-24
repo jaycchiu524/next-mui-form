@@ -8,6 +8,7 @@ import { JobSchema } from '@/yup/schemas'
 import { Stack, Paper, Button, Slider } from '@mui/material'
 import JobPostForm from '@/components/JobPostForm'
 import { Container } from '@/components/commons'
+import Header from '@/components/Header'
 
 type Props = {}
 
@@ -39,21 +40,37 @@ const EditJobPost = (props: Props) => {
 
   return (
     <Container>
-      {JSON.stringify(jobpost, null, 2)}
-
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          push('/job-post')
-        }}>
-        Back
-      </Button>
+      <Header />
+      <Stack
+        sx={{ margin: 2 }}
+        direction="row"
+        justifyContent="flex-start"
+        spacing={2}>
+        <Button
+          variant="contained"
+          onClick={(e) => {
+            e.preventDefault()
+            push('/job-post')
+          }}>
+          Back
+        </Button>
+      </Stack>
 
       <FormProvider {...methods}>
         {jobpost && <JobPostForm />}
-        <Button variant="outlined" type="submit" onClick={handleCreateJobPost}>
-          Confirm Editing
-        </Button>
+        <Stack
+          sx={{ margin: 2 }}
+          direction="row"
+          justifyContent="flex-end"
+          spacing={2}>
+          <Button
+            color="success"
+            variant="contained"
+            type="submit"
+            onClick={handleCreateJobPost}>
+            Confirm Editing
+          </Button>
+        </Stack>
       </FormProvider>
     </Container>
   )
