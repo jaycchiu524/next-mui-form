@@ -2,7 +2,7 @@ import { useStore } from '@/store'
 import React, { FormEvent, useEffect, useState } from 'react'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import EditSharpIcon from '@mui/icons-material/EditSharp'
-import { Checkbox, IconButton, Button, Stack } from '@mui/material'
+import { Checkbox, IconButton, Button, Stack, Tooltip } from '@mui/material'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -92,30 +92,35 @@ const JobPostHome = () => {
       cell: (info) => {
         return (
           <>
-            <IconButton
-              size="small"
-              onClick={(e) => {
-                e.preventDefault()
-                router.push(`/company/edit/${info.row.original.id}`)
-              }}
-              color="info">
-              <EditSharpIcon />
-            </IconButton>
-            <IconButton
-              size="small"
-              onClick={(e) => {
-                e.preventDefault()
-                const canRemove = confirm(
-                  'Are you sure you want to remove this job post?',
-                )
+            <Tooltip title="Edit">
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push(`/company/edit/${info.row.original.id}`)
+                }}
+                color="info">
+                <EditSharpIcon />
+              </IconButton>
+            </Tooltip>
 
-                if (canRemove) {
-                  remove(info.row.original.id)
-                }
-              }}
-              color="error">
-              <DeleteForeverIcon />
-            </IconButton>
+            <Tooltip title="Delete">
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const canRemove = confirm(
+                    'Are you sure you want to remove this job post?',
+                  )
+
+                  if (canRemove) {
+                    remove(info.row.original.id)
+                  }
+                }}
+                color="error">
+                <DeleteForeverIcon />
+              </IconButton>
+            </Tooltip>
           </>
         )
       },

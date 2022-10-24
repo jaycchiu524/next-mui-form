@@ -1,6 +1,6 @@
 import { useStore } from '@/store'
 import React, { useState, useEffect } from 'react'
-import { Checkbox, IconButton, Button, Stack } from '@mui/material'
+import { Checkbox, IconButton, Button, Stack, Tooltip } from '@mui/material'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import EditSharpIcon from '@mui/icons-material/EditSharp'
 import { useRouter } from 'next/router'
@@ -113,30 +113,34 @@ const JobPostHome = (props: Props) => {
       cell: (job) => {
         return (
           <>
-            <IconButton
-              size="small"
-              onClick={(e) => {
-                e.preventDefault()
-                router.push(`/job-post/edit/${job.row.original.id}`)
-              }}
-              color="info">
-              <EditSharpIcon />
-            </IconButton>
-            <IconButton
-              size="small"
-              onClick={(e) => {
-                e.preventDefault()
-                const canRemove = confirm(
-                  'Are you sure you want to remove this job post?',
-                )
+            <Tooltip title="Edit">
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push(`/job-post/edit/${job.row.original.id}`)
+                }}
+                color="info">
+                <EditSharpIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Delete">
+              <IconButton
+                size="small"
+                onClick={(e) => {
+                  e.preventDefault()
+                  const canRemove = confirm(
+                    'Are you sure you want to remove this job post?',
+                  )
 
-                if (canRemove) {
-                  remove(job.row.original.id)
-                }
-              }}
-              color="error">
-              <DeleteForeverIcon />
-            </IconButton>
+                  if (canRemove) {
+                    remove(job.row.original.id)
+                  }
+                }}
+                color="error">
+                <DeleteForeverIcon />
+              </IconButton>
+            </Tooltip>
           </>
         )
       },
