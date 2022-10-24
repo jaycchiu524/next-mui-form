@@ -1,6 +1,8 @@
 import { useStore } from '@/store'
 import React, { useState, useEffect } from 'react'
-import { Checkbox, Paper, Button, Stack } from '@mui/material'
+import { Checkbox, IconButton, Button, Stack } from '@mui/material'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import EditSharpIcon from '@mui/icons-material/EditSharp'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -110,32 +112,32 @@ const JobPostHome = (props: Props) => {
       id: 'actions',
       cell: (job) => {
         return (
-          <div>
-            {/* <Button
-              onClick={(e) => {
-                e.preventDefault()
-                router.push(`/job-post/${job.row.original.id}`)
-              }}>
-              View
-            </Button> */}
-            <Button
-              variant="outlined"
+          <>
+            <IconButton
+              size="small"
               onClick={(e) => {
                 e.preventDefault()
                 router.push(`/job-post/edit/${job.row.original.id}`)
-              }}>
-              Edit
-            </Button>
-            <Button
-              variant="outlined"
-              color="error"
+              }}
+              color="info">
+              <EditSharpIcon />
+            </IconButton>
+            <IconButton
+              size="small"
               onClick={(e) => {
                 e.preventDefault()
-                remove(job.row.original.id)
-              }}>
-              Delete
-            </Button>
-          </div>
+                const canRemove = confirm(
+                  'Are you sure you want to remove this job post?',
+                )
+
+                if (canRemove) {
+                  remove(job.row.original.id)
+                }
+              }}
+              color="error">
+              <DeleteForeverIcon />
+            </IconButton>
+          </>
         )
       },
     }),
@@ -146,6 +148,24 @@ const JobPostHome = (props: Props) => {
     getCoreRowModel: getCoreRowModel(),
   })
 
+  const pagination = (
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}>
+      <Pagination
+        count={Math.ceil(jobposts.length / rowsPerPage)}
+        shape="rounded"
+        page={page}
+        onChange={(_, page) => {
+          setPage(page)
+          window.scrollTo(0, 0)
+        }}
+      />
+    </Stack>
+  )
+
   return (
     <Container>
       {selected.length > 0 && (
@@ -154,8 +174,14 @@ const JobPostHome = (props: Props) => {
           variant="outlined"
           onClick={(e) => {
             e.preventDefault()
-            bulkRemove(selected)
-            setSelected([])
+            const canRemove = confirm(
+              'Are you sure you want to remove all selected job posts?\nThis action cannot be undone.',
+            )
+
+            if (canRemove) {
+              bulkRemove(selected)
+              setSelected([])
+            }
           }}>
           Delete all selected
         </Button>
@@ -168,6 +194,7 @@ const JobPostHome = (props: Props) => {
         }}>
         Insert
       </Button>
+      {pagination}
       <Table color="white">
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -213,19 +240,7 @@ const JobPostHome = (props: Props) => {
           ))}
         </TableFooter>
       </Table>
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}>
-        <Pagination
-          count={Math.ceil(jobposts.length / rowsPerPage)}
-          shape="rounded"
-          onChange={(_, page) => {
-            setPage(page)
-          }}
-        />
-      </Stack>
+      {pagination}
     </Container>
   )
 }

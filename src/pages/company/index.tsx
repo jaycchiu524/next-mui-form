@@ -1,6 +1,8 @@
 import { useStore } from '@/store'
 import React, { FormEvent, useEffect, useState } from 'react'
-import { Checkbox, TextField, Button, Stack } from '@mui/material'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import EditSharpIcon from '@mui/icons-material/EditSharp'
+import { Checkbox, IconButton, Button, Stack } from '@mui/material'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -89,25 +91,32 @@ const JobPostHome = () => {
       id: 'actions',
       cell: (info) => {
         return (
-          <div>
-            <Button
-              variant="outlined"
+          <>
+            <IconButton
+              size="small"
               onClick={(e) => {
                 e.preventDefault()
                 router.push(`/company/edit/${info.row.original.id}`)
-              }}>
-              Edit
-            </Button>
-            <Button
-              variant="outlined"
-              color="error"
+              }}
+              color="info">
+              <EditSharpIcon />
+            </IconButton>
+            <IconButton
+              size="small"
               onClick={(e) => {
                 e.preventDefault()
-                remove(info.row.original.id)
-              }}>
-              Delete
-            </Button>
-          </div>
+                const canRemove = confirm(
+                  'Are you sure you want to remove this job post?',
+                )
+
+                if (canRemove) {
+                  remove(info.row.original.id)
+                }
+              }}
+              color="error">
+              <DeleteForeverIcon />
+            </IconButton>
+          </>
         )
       },
     }),
@@ -118,17 +127,40 @@ const JobPostHome = () => {
     getCoreRowModel: getCoreRowModel(),
   })
 
+  const pagination = (
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}>
+      <Pagination
+        count={Math.ceil(companies.length / rowsPerPage)}
+        page={page}
+        shape="rounded"
+        onChange={(_, page) => {
+          setPage(page)
+          window.scrollTo(0, 0)
+        }}
+      />
+    </Stack>
+  )
+
   return (
     <Container>
-      {selected.length > 0 && <div>{JSON.stringify(selected, null, 2)}</div>}
       {selected.length > 0 && (
         <Button
           color="error"
           variant="outlined"
           onClick={(e) => {
             e.preventDefault()
-            bulkRemove(selected)
-            setSelected([])
+            const canRemove = confirm(
+              'Are you sure you want to remove all selected companies?\nThis action cannot be undone.',
+            )
+
+            if (canRemove) {
+              bulkRemove(selected)
+              setSelected([])
+            }
           }}>
           Delete all selected
         </Button>
@@ -141,6 +173,7 @@ const JobPostHome = () => {
         }}>
         Insert
       </Button>
+      {pagination}
       <Table color="white">
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -186,20 +219,7 @@ const JobPostHome = () => {
           ))}
         </TableFooter>
       </Table>
-
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}>
-        <Pagination
-          count={Math.ceil(companies.length / rowsPerPage)}
-          shape="rounded"
-          onChange={(_, page) => {
-            setPage(page)
-          }}
-        />
-      </Stack>
+      {pagination}
     </Container>
   )
 }
