@@ -1,13 +1,20 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { NextSeo } from 'next-seo'
+import { ThemeProvider, createTheme, ScopedCssBaseline } from '@mui/material'
 
 import 'react-phone-number-input/style.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  })
+
   return (
     // <QueryClientProvider client={queryClient}>
-    <>
+    <ThemeProvider theme={darkTheme}>
       <NextSeo
         title="Kreatipedia"
         description="Know more about Kreatipedia, ."
@@ -38,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   )
 }
 

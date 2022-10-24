@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack, Paper, Button, Slider } from '@mui/material'
-import { useForm, Controller, useFieldArray } from 'react-hook-form'
+import { useForm, Controller, FormProvider } from 'react-hook-form'
 import { TextInput } from '@/components/TextInput'
 import styled from '@emotion/styled'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -9,6 +9,8 @@ import { Container } from '@/components/commons'
 import { JobPost } from '../api/interfaces/job'
 import { nanoid } from 'nanoid'
 import { useStore } from '@/store'
+import { useRouter } from 'next/router'
+import JobPostForm from '@/components/JobPostForm'
 
 type Props = {}
 
@@ -17,12 +19,8 @@ const ErrorMsg = styled('p')`
 `
 
 const AddJobPost = (props: Props) => {
-  const {
-    handleSubmit,
-    control,
-    register,
-    formState: { errors },
-  } = useForm<JobPost>({
+  const router = useRouter()
+  const methods = useForm<JobPost>({
     defaultValues: {
       title: '',
       industry: 'IT',
@@ -36,113 +34,35 @@ const AddJobPost = (props: Props) => {
     mode: 'onChange',
   })
 
-  const setJobPosts = useStore((state) => state.setJobPosts)
+  const { handleSubmit, reset } = methods
+
+  const append = useStore((state) => state.appendJobPost)
   const globaljobs = useStore((state) => state.jobPosts)
 
   const handleCreateJobPost = handleSubmit(async (values) => {
     const id = nanoid()
     const jobPost = { ...values, id }
-
-    setJobPosts([jobPost])
-
-    console.log(globaljobs)
+    append(jobPost)
+    reset()
+    alert(JSON.stringify(jobPost, null, 2))
   })
 
   return (
     <Container>
-      <Paper sx={{ p: 4 }} component="form" onSubmit={handleCreateJobPost}>
-        <Stack spacing={2}>
-          <TextInput
-            {...register('title')}
-            label="Job Title"
-            placeholder="Title"
-            error={!!errors.title}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('company')}
-            label="Company"
-            placeholder="Company"
-            error={!!errors.company}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('description')}
-            label="Description"
-            placeholder="Name"
-            error={!!errors.description}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('industry')}
-            label="Industry"
-            placeholder="Name"
-            error={!!errors.industry}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('category')}
-            label="Category"
-            placeholder="Name"
-            error={!!errors.category}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('startdate')}
-            label="Start Date"
-            placeholder="Now"
-            error={!!errors.startdate}
-            // helperText="Required"
-          />
-          <TextInput
-            {...register('type')}
-            label="Type"
-            placeholder="full-time"
-            error={!!errors.type}
-            // helperText="Required"
-          />
+      <Button
+        onClick={(e) => {
+          e.preventDefault()
+          router.push('/job-post')
+        }}>
+        Back
+      </Button>
 
-          <Controller
-            name="payrate"
-            control={control}
-            // defaultValue={[0, 10]}
-            render={({ field: { onChange, value } }) => (
-              <>
-                <Slider
-                  {...props}
-                  onChange={onChange}
-                  value={value}
-                  valueLabelDisplay="auto"
-                  min={0}
-                  max={200000}
-                  step={1000}
-                />
-                <p>
-                  {typeof value !== 'number'
-                    ? `${value[0]} - ${value[1]} / year`
-                    : value}
-                </p>
-              </>
-            )}
-          />
-
-          <Button
-            variant="outlined"
-            type="submit"
-            onClick={handleCreateJobPost}>
-            Create Job Post
-          </Button>
-
-          <Button
-            variant="outlined"
-            // type="submit"
-            onClick={() => {
-              console.log(globaljobs)
-            }}>
-            Show Job Post
-          </Button>
-        </Stack>
-      </Paper>
+      <FormProvider {...methods}>
+        <JobPostForm />
+        <Button variant="outlined" type="submit" onClick={handleCreateJobPost}>
+          Create Job Post
+        </Button>
+      </FormProvider>
     </Container>
   )
 }

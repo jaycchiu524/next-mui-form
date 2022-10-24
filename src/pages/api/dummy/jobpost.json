@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "company": "Company 1",
+    "title": "Title 1",
+    "description": "Description 1",
+    "industry": "Industry 1",
+    "payrate": [
+      30000,
+      40000
+    ],
+    "type": "full-time",
+    "category": "category 1",
+    "startdate": "2022-10-23T20:23:19.400Z"
+  },
+  {
+    "id": "2",
+    "company": "Company 2",
+    "title": "Title 2",
+    "description": "Description 2",
+    "industry": "Industry 2",
+    "payrate": [
+      70000,
+      90000
+    ],
+    "type": "full-time",
+    "category": "category 2",
+    "startdate": "2022-10-21T20:23:19.400Z"
+  },
+  {
+    "id": "3",
+    "company": "Company 3",
+    "title": "Title 3",
+    "description": "Description 3",
+    "industry": "Industry 3",
+    "payrate": [
+      100000,
+      150000
+    ],
+    "type": "full-time",
+    "category": "category 3",
+    "startdate": "2022-10-22T20:23:19.400Z"
+  }
+]
