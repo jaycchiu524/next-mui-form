@@ -23,7 +23,7 @@ const DatePicker = (props: Props) => {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <Stack spacing={3}>
             <DesktopDatePicker
-              label="Date desktop"
+              label="Start Date"
               inputFormat="MM/dd/yyyy"
               value={value}
               onChange={onChange}
