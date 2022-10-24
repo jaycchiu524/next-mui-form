@@ -16,7 +16,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - [ ] Job Post Module
 
-  - [ ] Company (Link with Company data)
+  - [x] Company (Link with Company data)
   - [x] Job Title
   - [x] Job Category
   - [x] Job Type (Full-Time, Part-Time etc.)
