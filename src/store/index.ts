@@ -14,6 +14,8 @@ type Store = {
   appendCompany: (company: Company) => void
   removeJobPost: (id: string) => void
   removeCompany: (id: string) => void
+  bulkRemoveJobPost: (ids: string[]) => void
+  bulkRemoveCompany: (ids: string[]) => void
   setCompanies: (companies: Company[]) => void
   setJobPosts: (jobPosts: JobPost[]) => void
 }
@@ -42,6 +44,20 @@ export const useStore = create<Store>()(
     removeCompany: (id: string) => {
       set((state) => {
         state.companies = state.companies.filter((company) => company.id !== id)
+      })
+    },
+    bulkRemoveJobPost: (ids: string[]) => {
+      set((state) => {
+        state.jobPosts = state.jobPosts.filter(
+          (jobPost) => !ids.includes(jobPost.id),
+        )
+      })
+    },
+    bulkRemoveCompany: (ids: string[]) => {
+      set((state) => {
+        state.companies = state.companies.filter(
+          (company) => !ids.includes(company.id),
+        )
       })
     },
     setCompanies: (companies: Company[]) => set({ companies }),

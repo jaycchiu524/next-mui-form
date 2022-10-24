@@ -1,6 +1,6 @@
 import { useStore } from '@/store'
 import React from 'react'
-import { Stack, Paper, Button, Slider } from '@mui/material'
+import { Checkbox, Paper, Button, Slider } from '@mui/material'
 import { useRouter } from 'next/router'
 import {
   createColumnHelper,
@@ -26,12 +26,37 @@ import { Company } from '../api/interfaces/company'
 type Props = {}
 
 const JobPostHome = (props: Props) => {
+  const [selected, setSelected] = React.useState<string[]>([])
+
   const router = useRouter()
   const companies = useStore((state) => state.companies)
   const remove = useStore((state) => state.removeCompany)
+  const bulkRemove = useStore((state) => state.bulkRemoveCompany)
 
   const columnHelper = createColumnHelper<Company>()
   const columns = [
+    columnHelper.display({
+      id: 'select',
+      cell: (info) => (
+        <Checkbox
+          {...{
+            inputProps: {
+              'aria-label': `Select Company ${info.row.original.name}`,
+            },
+          }}
+          onChange={(e) => {
+            if (e.target.checked) {
+              setSelected((prev) => [...prev, info.row.original.id])
+            } else {
+              setSelected((prev) =>
+                prev.filter((id) => id !== info.row.original.id),
+              )
+            }
+          }}
+          checked={selected.includes(info.row.original.id)}
+        />
+      ),
+    }),
     columnHelper.accessor('name', {
       header: () => 'Name',
       cell: (info) => info.getValue(),
@@ -89,6 +114,19 @@ const JobPostHome = (props: Props) => {
 
   return (
     <Container>
+      {selected.length > 0 && <div>{JSON.stringify(selected, null, 2)}</div>}
+      {selected.length > 0 && (
+        <Button
+          color="error"
+          variant="outlined"
+          onClick={(e) => {
+            e.preventDefault()
+            bulkRemove(selected)
+            setSelected([])
+          }}>
+          Delete all selected
+        </Button>
+      )}
       <Button
         variant="outlined"
         onClick={(e) => {
