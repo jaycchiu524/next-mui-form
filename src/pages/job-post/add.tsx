@@ -28,7 +28,7 @@ const AddJobPost = (props: Props) => {
       payrate: [40000, 50000],
       startdate: new Date(),
       type: 'full-time',
-      company: '',
+      company: null,
       category: '',
     },
     resolver: yupResolver(JobSchema),

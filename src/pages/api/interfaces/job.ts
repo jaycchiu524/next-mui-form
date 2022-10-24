@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import { Company } from './company'
 
 export const jobIndustries = [
   'IT',
@@ -25,7 +26,7 @@ export type JobType = typeof jobTypes[number]
 
 export interface JobPost {
   id: string
-  company: string
+  company: Company | null | string
   title: string
   category: string
   type: JobType

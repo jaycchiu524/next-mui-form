@@ -75,7 +75,15 @@ const JobPostHome = (props: Props) => {
     }),
     columnHelper.accessor('company', {
       header: 'Company',
-      cell: (job) => job.getValue(),
+      cell: (job) => {
+        const c = job.getValue()
+
+        if (typeof c == 'string') {
+          return c
+        } else {
+          return c?.name
+        }
+      },
     }),
     columnHelper.accessor('industry', {
       header: () => 'Industry',

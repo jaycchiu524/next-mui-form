@@ -6,11 +6,14 @@ import {
   Radio,
   FormControlLabel,
   Slider,
+  Autocomplete,
 } from '@mui/material'
-import { Controller, useFormContext } from 'react-hook-form'
+import { Controller, useFormContext, useController } from 'react-hook-form'
 import { TextInput } from '@/components/TextInput'
 import DatePicker from './DatePicker'
 import IndustryPicker from './IndustryPicker'
+import { useStore } from '@/store'
+import { Company } from '@/pages/api/interfaces/company'
 
 type Props = {}
 
@@ -23,38 +26,58 @@ const JobPostForm = (props: Props) => {
     formState: { errors },
   } = useFormContext()
 
+  const {
+    field: { onChange, value },
+  } = useController({ control, name: 'company' })
+
+  const companies = useStore((state) => state.companies)
+
   return (
     <Paper sx={{ p: 4 }} component="form">
       <Stack spacing={2}>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={
+            value
+              ? [value, ...companies.filter((s) => s.id !== value.id)]
+              : companies
+          }
+          value={value}
+          onChange={(e, value) => {
+            onChange(value || null)
+          }}
+          getOptionLabel={(option: Company) => option.name || ''}
+          sx={{ width: 300 }}
+          filterOptions={(x) => x}
+          renderInput={(params) => (
+            <TextInput {...params} key={params.id} label="Company" />
+          )}
+        />
         <TextInput
           {...register('title')}
           label="Job Title"
-          placeholder="Title"
+          placeholder="Software Engineer"
           error={!!errors.title}
           // helperText="Required"
         />
-        <TextInput
-          {...register('company')}
-          label="Company"
-          placeholder="Company"
-          error={!!errors.company}
-          // helperText="Required"
-        />
+
         <TextInput
           {...register('description')}
           label="Description"
-          placeholder="Name"
+          placeholder="Write a description"
           error={!!errors.description}
           // helperText="Required"
         />
-        <IndustryPicker />
         <TextInput
           {...register('category')}
           label="Category"
-          placeholder="Name"
+          placeholder="What category does this job fall under?"
           error={!!errors.category}
           // helperText="Required"
         />
+        <IndustryPicker />
+
         <DatePicker />
 
         <Controller
@@ -66,7 +89,8 @@ const JobPostForm = (props: Props) => {
               defaultValue="female"
               name="radio-buttons-group"
               onChange={onChange}
-              value={value}>
+              value={value}
+              row={true}>
               <FormControlLabel
                 value="full-time"
                 control={<Radio />}
@@ -81,6 +105,11 @@ const JobPostForm = (props: Props) => {
                 value="contract"
                 control={<Radio />}
                 label="Contract"
+              />
+              <FormControlLabel
+                value="internship"
+                control={<Radio />}
+                label="Internship"
               />
             </RadioGroup>
           )}
