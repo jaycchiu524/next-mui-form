@@ -185,14 +185,14 @@ const JobPostHome = (props: Props) => {
       <Stack
         sx={{ margin: 2 }}
         direction="row"
-        justifyContent="flex-end"
+        justifyContent="center"
         alignItems="center"
         spacing={2}>
         {selected.length > 0 && (
           <>
             <Button
               color="error"
-              variant="outlined"
+              variant="contained"
               onClick={(e) => {
                 e.preventDefault()
                 const canRemove = confirm(
