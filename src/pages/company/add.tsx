@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack, Paper, Button } from '@mui/material'
+import { Stack, Button } from '@mui/material'
 import { Company } from '../api/interfaces/company'
 import { useForm, FormProvider } from 'react-hook-form'
 import { TextInput } from '@/components/TextInput'
@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import { useStore } from '@/store'
 import { nanoid } from 'nanoid'
 import CompanyForm from '@/components/CompanyForm'
+import Header from '@/components/Header'
 
 type Props = {}
 
@@ -43,19 +44,38 @@ const AddCompany = (props: Props) => {
 
   return (
     <Container>
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          router.push('/company')
-        }}>
-        Back
-      </Button>
+      <Header />
+      <Stack
+        sx={{ margin: 2 }}
+        direction="row"
+        justifyContent="flex-start"
+        spacing={2}>
+        <Button
+          variant="contained"
+          onClick={(e) => {
+            e.preventDefault()
+            router.push('/company')
+          }}>
+          Back
+        </Button>
+      </Stack>
 
       <FormProvider {...methods}>
         <CompanyForm />
-        <Button variant="outlined" type="submit" onClick={handleCreateCompany}>
-          Add Company
-        </Button>
+
+        <Stack
+          sx={{ margin: 2 }}
+          direction="row"
+          justifyContent="flex-end"
+          spacing={2}>
+          <Button
+            color="success"
+            variant="contained"
+            type="submit"
+            onClick={handleCreateCompany}>
+            Add Company
+          </Button>
+        </Stack>
       </FormProvider>
     </Container>
   )

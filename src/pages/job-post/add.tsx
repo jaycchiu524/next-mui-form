@@ -11,6 +11,7 @@ import { nanoid } from 'nanoid'
 import { useStore } from '@/store'
 import { useRouter } from 'next/router'
 import JobPostForm from '@/components/JobPostForm'
+import Header from '@/components/Header'
 
 type Props = {}
 
@@ -49,19 +50,36 @@ const AddJobPost = (props: Props) => {
 
   return (
     <Container>
-      <Button
-        onClick={(e) => {
-          e.preventDefault()
-          router.push('/job-post')
-        }}>
-        Back
-      </Button>
+      <Header />
+      <Stack
+        sx={{ margin: 2 }}
+        direction="row"
+        justifyContent="flex-start"
+        spacing={2}>
+        <Button
+          onClick={(e) => {
+            e.preventDefault()
+            router.push('/job-post')
+          }}>
+          Back
+        </Button>
+      </Stack>
 
       <FormProvider {...methods}>
         <JobPostForm />
-        <Button variant="outlined" type="submit" onClick={handleCreateJobPost}>
-          Add Job Post
-        </Button>
+        <Stack
+          sx={{ margin: 2 }}
+          direction="row"
+          justifyContent="flex-end"
+          spacing={2}>
+          <Button
+            color="success"
+            variant="contained"
+            type="submit"
+            onClick={handleCreateJobPost}>
+            Add Job Post
+          </Button>
+        </Stack>
       </FormProvider>
     </Container>
   )
