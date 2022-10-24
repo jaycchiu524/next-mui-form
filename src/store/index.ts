@@ -20,6 +20,7 @@ type Store = {
   setJobPosts: (jobPosts: JobPost[]) => void
 }
 
+// @ts-ignore
 const defaultJobPosts = dummyJobPost as JobPost[]
 
 export const useStore = create<Store>()(
