@@ -24,6 +24,7 @@ import {
 } from '@mui/material'
 import { Container, paginate } from '@/components/commons'
 import { Company } from '../api/interfaces/company'
+import Header from '@/components/Header'
 
 const JobPostHome = () => {
   const [page, setPage] = useState(1)
@@ -152,6 +153,8 @@ const JobPostHome = () => {
 
   return (
     <Container>
+      <Header />
+
       <Stack
         sx={{ margin: 2 }}
         direction="row"

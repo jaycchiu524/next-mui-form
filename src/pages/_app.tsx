@@ -6,7 +6,7 @@ import { ThemeProvider, createTheme, ScopedCssBaseline } from '@mui/material'
 import 'react-phone-number-input/style.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const darkTheme = createTheme({
+  const theme = createTheme({
     palette: {
       mode: 'light',
     },
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     // <QueryClientProvider client={queryClient}>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <NextSeo
         title="Kreatipedia"
         description="Know more about Kreatipedia, ."

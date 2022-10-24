@@ -25,6 +25,7 @@ import {
   Chip,
 } from '@mui/material'
 import { Container, paginate } from '@/components/commons'
+import Header from '@/components/Header'
 
 type Props = {}
 
@@ -172,6 +173,7 @@ const JobPostHome = (props: Props) => {
 
   return (
     <Container>
+      <Header />
       <Stack
         sx={{ margin: 2 }}
         direction="row"
