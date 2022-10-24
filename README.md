@@ -1,5 +1,51 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Roadmap
+
+### Requirements
+
+1. Create a webpage with a perfect score for parameters - Performance, accessibility, best practices, and SEO. You can refer to the content from any website you want.
+2. Create only the frontend for a CRUD with the following details:
+
+- [ ] Lighthouse Scores
+
+  - [x] SEO - 100
+  - [x] Performance - 100
+  - [ ] A11y - 96
+  - [ ] Best Practices - 92
+
+- [ ] Job Post Module
+
+  - [ ] Company (Link with Company data)
+  - [x] Job Title
+  - [x] Job Category
+  - [x] Job Type (Full-Time, Part-Time etc.)
+  - [x] Industry Type (Retail, IT etc.)
+  - [x] Short Description
+  - [ ] Job Description (file upload)
+  - [x] Start date
+  - [x] Pay rate
+
+- [x] Company module
+
+  - [x] Company name
+  - [x] Company address
+  - [x] Company email
+  - [x] Company phone number
+
+- [x] CRUDs' frontend with index pages
+  - [x] list all entries
+  - [x] action buttons to delete individual
+  - [x] delete bulk entries
+  - [x] forms to insert and edit entries
+
+### More to work on
+
+- [ ] UI Design
+- [ ] Responsiveness
+- [ ] Database
+- [ ] PWA
+
 ## Getting Started
 
 First, run the development server:
