@@ -38,6 +38,7 @@ const AddCompany = (props: Props) => {
     append(company)
     reset()
     alert(JSON.stringify(company, null, 2))
+    router.push('/company')
   })
 
   return (

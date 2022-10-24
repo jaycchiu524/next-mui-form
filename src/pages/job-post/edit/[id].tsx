@@ -28,12 +28,13 @@ const EditJobPost = (props: Props) => {
     mode: 'onChange',
   })
 
-  const { handleSubmit, setValue } = methods
+  const { handleSubmit } = methods
 
   const handleCreateJobPost = handleSubmit(async (values) => {
     remove(values.id)
     append(values)
     alert(JSON.stringify(values, null, 2))
+    push('/job-post')
   })
 
   return (

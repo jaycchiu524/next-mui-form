@@ -28,7 +28,7 @@ const AddJobPost = (props: Props) => {
       startdate: new Date(),
       type: 'full-time',
       company: '',
-      category: 'software',
+      category: '',
     },
     resolver: yupResolver(JobSchema),
     mode: 'onChange',
@@ -44,6 +44,7 @@ const AddJobPost = (props: Props) => {
     append(jobPost)
     reset()
     alert(JSON.stringify(jobPost, null, 2))
+    router.push('/job-post')
   })
 
   return (

@@ -36,6 +36,7 @@ const EditCompany = (props: Props) => {
     remove(values.id)
     append(values)
     alert(JSON.stringify(values, null, 2))
+    push('/company')
   })
 
   return (

@@ -28,12 +28,12 @@ export const useStore = create<Store>()(
     jobPosts: [...defaultJobPosts],
     appendJobPost: (jobPost: JobPost) => {
       set((state) => {
-        state.jobPosts.push(jobPost)
+        state.jobPosts.unshift(jobPost)
       })
     },
     appendCompany: (company: Company) => {
       set((state) => {
-        state.companies.push(company)
+        state.companies.unshift(company)
       })
     },
     removeJobPost: (id: string) => {
