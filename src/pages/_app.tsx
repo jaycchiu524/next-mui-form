@@ -17,32 +17,31 @@ function MyApp({ Component, pageProps }: AppProps) {
     // <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
       <NextSeo
-        title="Kreatipedia"
-        description="Know more about Kreatipedia, ."
-        canonical="https://kreatipedia.com/"
+        title="Jay Chiu"
+        description="Know more about Jay Chiu, ."
+        canonical="https://jaychiu.me"
         openGraph={{
-          url: 'kreatipedia.com',
-          title: 'Kreatipedia - Cost, Cosistency, and Commitment',
-          description:
-            'With over years of problem solving experience, Kreatipedia Inc. stands tall in the international markets with physical presence in Canada and USA and online presence in North America, Europe, Asia and Australia.',
+          url: 'jaychiu.me',
+          title: 'Jay Chiu - Developer',
+          description: "Hello World, I'm Jay, You're gonna know more about me.",
           type: 'profile',
           images: [
             {
-              url: 'https://kreatipedia.com/img/Kreatipedia%20Logo%20Icon%20-%2060X60.png',
+              url: 'https://jaychiu.me/og-jaychiu-1.jpg',
               width: 1200,
               height: 630,
-              alt: 'Kreatipedia',
+              alt: 'Jay Chiu',
               type: 'image/jpeg',
             },
             {
-              url: 'https://kreatipedia.com/img/Kreatipedia%20Logo%20Icon%20-%2060X60.png',
+              url: 'https://jaychiu.me/og-jaychiu-2.png',
               width: 1200,
               height: 630,
-              alt: 'Kreatipedia',
+              alt: 'Jay Chiu',
               type: 'image/jpeg',
             },
           ],
-          site_name: 'Kreatipedia',
+          site_name: 'Jay Chiu',
         }}
       />
       <Head>

@@ -1,9 +1,6 @@
 {
-  "name": "Kreatipedia - Cost, Cosistency, and Commitment",
-  "short_name": "Kreatipedia",
-  "start_url": "/",
-  "orientation": "portrait-primary",
-  "description": "Know more about Kreatipedia.",
+  "name": "",
+  "short_name": "",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
